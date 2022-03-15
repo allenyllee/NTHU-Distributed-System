@@ -94,7 +94,6 @@ func (s *service) UpdateComment(ctx context.Context, req *pb.UpdateCommentReques
 	}
 
 	return &pb.UpdateCommentResponse{Comment: comment.ToProto()}, nil
-
 }
 
 /*
