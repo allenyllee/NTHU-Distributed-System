@@ -33,7 +33,7 @@ service Comment {
 	rpc UpdateComment(UpdateCommentRequest) returns (UpdateCommentResponse) {
 		option (google.api.http) = {
 			put: "/v1/comments/{id}"
-			body: "contents"
+			body: "content"
 			response_body: "comment"
 		};
 	}
