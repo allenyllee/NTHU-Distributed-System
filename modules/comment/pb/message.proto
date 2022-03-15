@@ -21,23 +21,43 @@ message CommentInfo {
 }
 
 // gRPC TODO: Define following message schemas.
-message CreateCommentRequest {}
+message CreateCommentRequest {
+	string video_id = 1;
+	string content = 2;
+}
 
-message CreateCommentResponse {}
+message CreateCommentResponse {
+	string id = 1;
+}
 
-message ListCommentRequest {}
+message ListCommentRequest {
+	string video_id = 1;
+	int32 limit = 2;
+	int32 offset = 3;
+}
 
-message ListCommentResponse {}
+message ListCommentResponse {
+	repeated CommentInfo comments = 1;
+}
 
-message UpdateCommentRequest {}
+message UpdateCommentRequest {
+	string id = 1;
+	string contents = 2;
+}
 
-message UpdateCommentResponse {}
+message UpdateCommentResponse {
+	CommentInfo comment = 1;
+}
 
-message DeleteCommentRequest {}
+message DeleteCommentRequest {
+	string id = 1;
+}
 
 message DeleteCommentResponse {}
 
-message DeleteCommentByVideoIDRequest {}
+message DeleteCommentByVideoIDRequest {
+	string video_id = 1;
+}
 
 message DeleteCommentByVideoIDResponse {}
 
