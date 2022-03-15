@@ -87,7 +87,7 @@ func (s *service) UpdateComment(ctx context.Context, req *pb.UpdateCommentReques
 	comment := dao.Comment{ID: commentID, Content: req.GetContent()}
 
 	if err := s.commentDAO.Update(ctx, &comment); err != nil {
-		if errors.Is(err, dao.ErrCommentNotFound){
+		if errors.Is(err, dao.ErrCommentNotFound) {
 			return nil, ErrCommentNotFound
 		}
 		return nil, err
@@ -108,7 +108,7 @@ func (s *service) DeleteComment(ctx context.Context, req *pb.DeleteCommentReques
 	}
 
 	if err := s.commentDAO.Delete(ctx, commentID); err != nil {
-		if errors.Is(err, dao.ErrCommentNotFound){
+		if errors.Is(err, dao.ErrCommentNotFound) {
 			return nil, ErrCommentNotFound
 		}
 		return nil, err
