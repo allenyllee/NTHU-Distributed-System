@@ -39,6 +39,7 @@ jobs:
         cluster-certificate-authority-data: ${{ secrets.KUBERNETES_CLUSTER_CLIENT_CERTIFICATE_AUTHORITY_DATA }}
         cluster-server: ${{ secrets.KUBERNETES_CLUSTER_SERVER }}
         credentials-token: ${{ secrets.KUBERNETES_CREDENTIALS_TOKEN }}
+        context-namespace: s110065801
 
     - name: run migration job
       uses: ./.github/actions/run-migration
@@ -74,6 +75,7 @@ jobs:
         cluster-certificate-authority-data: ${{ secrets.KUBERNETES_CLUSTER_CLIENT_CERTIFICATE_AUTHORITY_DATA }}
         cluster-server: ${{ secrets.KUBERNETES_CLUSTER_SERVER }}
         credentials-token: ${{ secrets.KUBERNETES_CREDENTIALS_TOKEN }}
+        context-namespace: s110065801
 
     - name: deploy video-api
       run: kubectl set image deploy/video-api video-api=${{ needs.setup.outputs.image-name }}
