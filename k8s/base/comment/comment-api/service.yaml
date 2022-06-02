@@ -1,7 +1,10 @@
-apiVersion: # TODO:
-kind: # TODO:
+apiVersion: v1
+kind: Service
 metadata:
   name: comment-api
 spec:
-  type: # TODO:
-  ports: # TODO:
+  type: ClusterIP
+  ports:
+  - name: grpc
+    port: 8081
+    targetPort: 8081
