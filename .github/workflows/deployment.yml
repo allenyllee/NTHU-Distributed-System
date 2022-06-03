@@ -41,6 +41,9 @@ jobs:
         credentials-token: ${{ secrets.KUBERNETES_CREDENTIALS_TOKEN }}
         context-namespace: s110065801
 
+    - name: deploy comment-migration
+      run: kubectl set image cronjob/comment-migration comment-migration=${{ needs.setup.outputs.image-name }}
+
     - name: run migration job
       uses: ./.github/actions/run-migration
       with:
