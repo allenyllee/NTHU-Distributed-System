@@ -6,6 +6,8 @@ spec:
   replicas: 2
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-access-token
       containers:
       - name: comment-api
         image: ghcr.io/nthu-lsalab/nthu-distributed-system:latest
